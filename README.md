@@ -22,13 +22,3 @@ Then run (from inside atuin):
 ansible-playbook -u ubuntu -i hosts.ini deploy.yml 
 ```
 
-
-## Clearing data
-```commandline
-docker exec -it influxdb influx delete --token=mkNcosqLwjIRwz5C64slCI6sjxPw65Dogtt5qBBz4Dp6vMQQo95DpUAJwLgb-3_MQcQUQrSVCfdOhebrGp8s0A== --org=cenazoa --bucket=cenazoa --start '1970-01-01T00:00:00Z' --stop $(date --utc +"%Y-%m-%dT%H:%M:%SZ") --predicate '_measurement="roof_solar"'
-```
-
-or
-```
-docker exec -it influxdb influx delete --token=mkNcosqLwjIRwz5C64slCI6sjxPw65Dogtt5qBBz4Dp6vMQQo95DpUAJwLgb-3_MQcQUQrSVCfdOhebrGp8s0A== --org=cenazoa --bucket=cenazoa --start '1970-01-01T00:00:00Z' --stop $(date --utc +"%Y-%m-%dT%H:%M:%SZ") --predicate 'govee_version="undefined"'
-```
