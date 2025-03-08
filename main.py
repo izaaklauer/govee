@@ -92,8 +92,8 @@ def write_to_influx(influx_client, bucket, org, measurement, tags, fields):
         Point(measurement)
         .tag("device", tags.get("device", "unknown"))
         .tag("deviceName", tags.get("deviceName", "unknown"))
-        .field("temperature", fields.get("temperature"))
-        .field("humidity", fields.get("humidity"))
+        .field("temperature2", int(fields.get("temperature")))
+        .field("humidity2", int(fields.get("humidity")))
         .time(time.time_ns(), WritePrecision.NS)  # current time
     )
 
